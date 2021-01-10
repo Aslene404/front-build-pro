@@ -1,0 +1,91 @@
+<div class="container w-full
+            flex flex-row 
+            sm:flex-col md:flex-col lg:flex-row xl:flex-row  align-center py-12">
+
+<div class="container flex flex-auto justify-center py-12 ">
+  <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center " style="background-image: url('/assets/img/signin.jpg')" title="signin">
+  </div>
+     <mat-card class="login">
+     <h1 class="text-blue-700 font-bold text-center">Sign In</h1><br>
+      <form [formGroup]="loginForm" #f>
+        <div > 
+         <mat-form-field appearance="fill" class="w-64">
+                <mat-label>Email</mat-label>
+                <input
+                 
+                  type="email"
+                  matInput 
+                  placeholder="Enter your email"
+                  required
+                  formControlName="email"
+                  >
+                  <mat-error *ngIf="loginForm.value.email.invalid || loginForm.hasError">{{getErrorMessage()}}</mat-error>
+                <mat-icon matPrefix>email</mat-icon>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input type="password" 
+                  matInput 
+                  placeholder="Enter your password" 
+                  formControlName="password"
+                  
+                  required >
+                  <mat-icon matPrefix>lock</mat-icon>
+                <button mat-icon-button >
+                
+                    <mat-icon>  </mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="flex items-center justify-between">
+      <div>
+        <button 
+        mat-stroked-button color="primary"
+        class="w-full" [disabled]="!loginForm.valid" (click)="onSubmit()"
+         >Signin
+        </button>
+      </div>
+      <div>
+        <a 
+        mat-raised-button 
+        color="primary"
+        [routerLink]="['/signup']"
+        >
+        Signup
+      </a>
+    </div>
+  </div>
+    </mat-card>
+</div>
+
+<div class="container flex flex-auto  py-12">
+    <div class="w-full lg:flex">
+        
+        <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+          <div class="mb-8">
+            
+            <div class="text-gray-900 font-bold">Bienvenue sur Build Pro</div>
+            <br>
+            <p class="text-gray-700">
+              " La construction est un front important pour solidifier les fondations d'un pays prospère et créer des bases pour la vie heureuse des gens "<br>  <br>       
+
+            </p>
+            
+            <div class="rounded-full h-16 w-16 flex items-center justify-center"><img class="rounded-corners" src="/assets/img/patrik.jpg"></div>
+            <p class="text-gray-600 leading-none"><br><br>- Patrik French</p>
+          </div>
+          <div class="flex items-center">
+            <div class="text-sm">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+

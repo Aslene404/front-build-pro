@@ -1,0 +1,72 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Admin Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]='["/back/home"]' routerLinkActive="active-link"
+        [routerLinkActive]='["active","inactive"]' mat-button>
+          <i class="fa fa-user-circle-o"></i>
+          Users
+          <span class="sr-only">(current)</span>
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]='["/back/devis"]' routerLinkActive="active-link"
+        [routerLinkActive]='["active","inactive"]' mat-button>
+          <i class="fa fa-briefcase">
+            
+          </i>
+          Devis
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]='["/back/messages"]' routerLinkActive="active-link"
+        [routerLinkActive]='["active","inactive"]' mat-button>
+          <i class="fa fa-envelope-o">
+            
+          </i>
+          Messages
+        </a>
+      </li>
+      
+     
+      <!--<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-envelope-o">
+            <span class="badge badge-primary">11</span>
+          </i>
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>-->
+    </ul>
+    <ul class="navbar-nav ">
+        <li class="nav-item">
+            
+                       
+                <a  class="nav-link" [routerLink]='["/home"]' mat-button >
+                    <mat-icon>menu</mat-icon>
+                    Client
+                </a>
+            
+        </li>
+        
+    
+      </ul>
+    
+  </div>
+</nav>

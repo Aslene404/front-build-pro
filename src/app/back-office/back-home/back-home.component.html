@@ -1,0 +1,99 @@
+<div class="container flex-full px-10 py-1">
+
+
+    <mat-form-field class="px-12 py-4">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter"
+            class="rounded-b text-teal-900 px-12 py-3 shadow-md">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort
+        class="mat-elevation-z8 border-t-4 rounded-b text-teal-900 px-4 py-3 shadow-md">
+        
+  
+       
+        <!-- fullname Column -->
+        <ng-container  matColumnDef="fullusername">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.fullusername}} </td>
+        </ng-container>
+  
+        <!-- email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+  
+    
+  
+        
+        <!-- phone Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+        </ng-container>
+        <!-- role Column -->
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+            <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+        </ng-container>
+        
+  
+        <!-- Actions delete and update-->
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let row">
+                
+                <button mat-icon-button 
+                        matTooltip="Click to Delete" 
+                        class="iconbutton" 
+                        color="warn"
+                        (click)="deleteDevis(row._id)">
+                <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> Promote to entreprise</th>
+            <td mat-cell *matCellDef="let row">
+                
+                <button *ngIf="row.role!='ENTREPRISE'" mat-icon-button 
+                        matTooltip="Click to Promote" 
+                        class="iconbutton" 
+                        color="primary"
+                        (click)="updateUserRole(row._id)">
+                <mat-icon aria-label="Delete">assignment_turned_in</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="reupdate" >
+            <th mat-header-cell *matHeaderCellDef> Change role to GUEST</th>
+            <td mat-cell *matCellDef="let row">
+                
+                <button *ngIf="row.role=='ENTREPRISE'" mat-icon-button 
+                        matTooltip="Click to Change role to GUEST" 
+                        class="iconbutton" 
+                        color="accent"
+                        (click)="reupdateUserRole(row._id)">
+                <mat-icon aria-label="Delete">assignment_turned_in</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="adminupdate" >
+            <th mat-header-cell *matHeaderCellDef> Change role to ADMIN</th>
+            <td mat-cell *matCellDef="let row">
+                
+                <button *ngIf="row.role!='ADMIN'" mat-icon-button 
+                        matTooltip="Click to Change role to ADMIN" 
+                        class="iconbutton" 
+                        color="warn"
+                        (click)="adminupdateUserRole(row._id)">
+                <mat-icon aria-label="Delete">assignment_turned_in</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+          
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

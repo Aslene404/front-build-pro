@@ -1,0 +1,57 @@
+<div class="px-2" >
+  <span class="text-center">
+    <h1> Espace Entreprise</h1>
+  </span>
+  <div class="flex md:flex-grow-0">
+
+    <div class="-mx-2">
+      <div class="flex flex-wrap mb-4 items-center -mx-1 lg:-mx-4 w-full">
+        <!-- SECTION PUB JOBS -->
+        <div class="container flex flex-wrap bg-white 
+                        w-full sm:w-1/1 md:w-1/2 lg:w-1/3 xl:w-1/4 
+                        mb-4 align-middle sm:align-middle md:align-middle 
+                        lg:align-middle xl:align-middle self-center"
+          *ngFor="let entreprise of myEntreprises ;let i=index" (click)="animation($event)">
+          <div class="container mx-auto pt-24 md:pt-16 px-6" front class="front">
+            <!-- CARD of Entreprises -->
+            <div class="max-w-sm rounded overflow-hidden shadow-lg self-center">
+              <img class="h-56 w-full border-white border-8" src={{entreprise.logo_url}}>
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">{{entreprise.name}}</div>
+
+              </div>
+              <div class="px-6 py-4">
+
+                <span class="inline-block bg-gray-200 rounded-full 
+                          px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                  *ngFor="let service of entreprise.services ;let i=index">
+                  {{service}}</span>
+              </div>
+              <div class="primary-blue-button" style="text-align: center;">
+                <a [routerLink]="['/entreprise/profile' ,entreprise._id]" class="scroll-link">En savoir plus </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- END SECTION PUB CRDS-->
+      </div>
+    </div>
+
+
+    <!-- TODO tree determine the blocs of photos  -->
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+<!-- TODO tree determine the implement of photos on the gallery-->

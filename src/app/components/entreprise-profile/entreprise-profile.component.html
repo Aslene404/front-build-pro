@@ -1,0 +1,75 @@
+<div class=" " style="background-image:url('assets/img/entreprise_background.jpg');">
+
+	<!--Main Col-->
+	<div id="profile"
+		class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+
+
+		<div class="p-4 md:p-12 text-center lg:text-left">
+			<!-- Image for mobile view-->
+			<div class="block  rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+				style="background-image: url({{myEntreprise.logo_url}})"></div>
+
+			<h1 class="text-3xl font-bold pt-8 lg:pt-0">{{myEntreprise.name}}</h1>
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 ">À propos de nous</div>
+			<p class="mx-auto lg:mx-0 w-4/5 pt-3 "> {{myEntreprise.about}}</p>
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 ">Nos services</div>
+			<p class="mx-auto lg:mx-0 w-4/5 pt-3 ">
+			<ul *ngFor="let service of myEntreprise.services;let i=index">
+				<li>
+					<mat-icon> beenhere</mat-icon>{{service}}
+				</li>
+
+			</ul>
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 ">Nos projets</div>
+			<p class="mx-auto lg:mx-0 w-4/5 pt-3 "> </p>
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 " style="width: 25rem;" *ngFor="let project of myProjects;let i=index">
+				<a href={{project.photo_url}} data-lightbox="image-1"><img class="card-img-top"
+						src={{project.photo_url}} alt="Card image cap"></a>
+				<div class="card-body">
+					<p class="card-text">{{project.name}}</p>
+				</div>
+
+
+
+			</div>
+
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 ">Conatctez-nous</div>
+			<p class="mx-auto lg:mx-0 w-4/5 pt-3 ">
+				<span class="material-icons">
+					local_phone
+				</span>{{myEntreprise.phone}}
+			</p>
+			<p class="mx-auto lg:mx-0 w-4/5 pt-3 ">
+				<span class="material-icons">
+					mail
+				</span>{{myEntreprise.email}}
+			</p>
+
+
+
+
+
+
+
+
+			<div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
+				<a href={{myEntreprise.fb}}><span class="material-icons">
+						facebook
+					</span></a>
+				<a href={{myEntreprise.website}}><span class="material-icons">
+						vpn_lock
+					</span>
+				</a>
+			</div>
+
+
+			<!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
+
+		</div>
+
+	</div>
+
+
+
+</div>

@@ -1,0 +1,318 @@
+<mat-horizontal-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Merci de choisir le rôle.">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Veuillez choisir votre rôle</ng-template>
+      <mat-selection-list #shoes [multiple]="false" formControlName="firstCtrl">
+        <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
+          {{shoe}}
+        </mat-list-option>
+      </mat-selection-list>
+
+      <p >
+        
+        Option sélectionnée : {{firstFormGroup.get('firstCtrl').value}}
+      </p>
+
+      <div>
+
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step *ngIf=" shoes.selectedOptions.selected[0]?.value=='Je suis un client'" errorMessage="Merci de remplir le formulaire.">
+    <form  [formGroup]="thirdFormGroup">
+      
+      <ng-template matStepLabel>Veuillez remplir le formulaire </ng-template>
+      
+      <div>
+        <mat-form-field>
+          <mat-label>Nom et prénom</mat-label>
+          <input matInput formControlName="fullname1" required [readonly]="existUser"
+            [ngClass]="existUser ? 'exist' : 'notexist' ">
+         
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Numéro de téléphone</mat-label>
+          <input matInput formControlName="phone1" required [readonly]="existUser"
+            [ngClass]="existUser ? 'exist' : 'notexist' ">
+          
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Entrer votre email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email1" required [readonly]="existUser"
+            [ngClass]="existUser ? 'exist' : 'notexist' ">
+          
+        </mat-form-field>
+      </div>
+      <h1 >Choisissez votre service ▼</h1>
+      <mat-grid-list cols="2" rowHeight="1:2">
+      <mat-grid-tile>
+        
+      <mat-selection-list formControlName="cat1" #cates [multiple]="false">
+        <mat-list-option *ngFor="let cate of cat" [value]="cate">
+          {{cate}}
+        </mat-list-option>
+      </mat-selection-list>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
+    
+      <mat-selection-list formControlName="subcat1"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Construction & Rénovation ►'" #subcates
+        [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat1" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Architecture & Bureau d’études ►'" #subcates
+        [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat2" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1" *ngIf=" cates.selectedOptions.selected[0]?.value=='Freelance ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat3" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1" *ngIf=" cates.selectedOptions.selected[0]?.value=='Extension ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat4" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1" *ngIf=" cates.selectedOptions.selected[0]?.value=='Démolition ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat5" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Terrassement ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat6" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Mur - Cloison - Plafond ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat7" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Sol - Plancher ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat8" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1" *ngIf=" cates.selectedOptions.selected[0]?.value=='Revêtement ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat9" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1" *ngIf=" cates.selectedOptions.selected[0]?.value=='Domotique ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat10" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Salle de bains - Spa ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat11" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat1"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Porte - Fenêtre - Volet ►'" #subcates
+        [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat12" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+
+
+
+
+      <div>
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-raised-button color="primary" matStepperNext (click)="send()">Envoyer</button>
+      </div>
+      </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-step>
+  <mat-step *ngIf=" shoes.selectedOptions.selected[0]?.value=='Je suis un professionnel'">
+    <form [formGroup]="secondFormGroup">
+      
+      <ng-template matStepLabel>Veuillez remplir le formulaire </ng-template>
+      <div>
+        <mat-form-field>
+          <mat-label>Nom et prénom</mat-label>
+          <input matInput formControlName="fullname" required [readonly]="existUser"
+            [ngClass]="existUser ? 'exist' : 'notexist' ">
+            
+            
+            
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Numéro de téléphone</mat-label>
+          <input matInput formControlName="phone" required [readonly]="existUser"
+            [ngClass]="existUser ? 'exist' : 'notexist' ">
+            
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Entrer votre email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email" required [readonly]="existUser"
+            [ngClass]="existUser ? 'exist' : 'notexist' ">
+          
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Nom de l'entreprise de travail</mat-label>
+          <input matInput formControlName="entreprise" required>
+          
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Numéro de registre de commerce</mat-label>
+          <input matInput formControlName="numRegistre" required>
+          
+        </mat-form-field>
+      </div>
+      <h1 >Choisissez votre service ▼</h1>
+      <mat-grid-list cols="2" rowHeight="1:2">
+      <mat-grid-tile>
+        
+      <mat-selection-list formControlName="cat" #cates [multiple]="false">
+        <mat-list-option *ngFor="let cate of cat" [value]="cate">
+          {{cate}}
+        </mat-list-option>
+      </mat-selection-list>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        
+    
+      <mat-selection-list formControlName="subcat"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Construction & Rénovation ►'" #subcates
+        [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat1" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Architecture & Bureau d’études ►'" #subcates
+        [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat2" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat" *ngIf=" cates.selectedOptions.selected[0]?.value=='Freelance ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat3" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat" *ngIf=" cates.selectedOptions.selected[0]?.value=='Extension ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat4" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat" *ngIf=" cates.selectedOptions.selected[0]?.value=='Démolition ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat5" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Terrassement ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat6" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Mur - Cloison - Plafond ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat7" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Sol - Plancher ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat8" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat" *ngIf=" cates.selectedOptions.selected[0]?.value=='Revêtement ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat9" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat" *ngIf=" cates.selectedOptions.selected[0]?.value=='Domotique ►'"
+        #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat10" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Salle de bains - Spa ►'" #subcates [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat11" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list formControlName="subcat"
+        *ngIf=" cates.selectedOptions.selected[0]?.value=='Porte - Fenêtre - Volet ►'" #subcates
+        [multiple]="false">
+        <mat-list-option *ngFor="let subcate of subcat12" [value]="subcate">
+          {{subcate}}
+        </mat-list-option>
+      </mat-selection-list>
+
+
+
+
+      <div>
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-raised-button color="primary" matStepperNext (click)="send()">Envoyer</button>
+      </div>
+      </mat-grid-tile>
+      </mat-grid-list>
+      
+    </form>
+  </mat-step>
+  
+
+
+
+
+
+
+
+
+
+  <mat-step >
+    <ng-template matStepLabel>Terminé</ng-template>
+    <p>Votre demande est envoyée.</p>
+    <div>
+      <button mat-button matStepperPrevious>Précédent</button>
+      <button mat-button (click)="stepper.reset()">Recommencer</button>
+      <button mat-button><a href="#"> Revenir à la page d'acceuil</a></button>
+
+
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

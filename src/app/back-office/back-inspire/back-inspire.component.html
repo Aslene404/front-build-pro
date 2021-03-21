@@ -1,0 +1,100 @@
+<form [formGroup]="inspireForm">
+    <h3>Inspirer / Découvrir</h3>
+
+    <mat-form-field appearance="fill" >
+        <mat-label>Nom / description du produit </mat-label>
+        <input matInput placeholder="Entrez le nom / description du produit " required
+            formControlName="name">
+        <mat-icon matSuffix>label</mat-icon>
+    </mat-form-field>
+    <br>
+    
+        <mat-radio-group aria-label="Choisissez une catégorie" required formControlName="cat">
+        
+            <mat-radio-button value="salle de bain et wc">Salle De Bain et WC</mat-radio-button>
+            <mat-radio-button value="cuisine">Cuisine</mat-radio-button>
+            <mat-radio-button value="chambre adulte">Chambre Adulte</mat-radio-button>
+            <mat-radio-button value="piéce à vivre">Piéce à Vivre</mat-radio-button>
+            <mat-radio-button value="salle à manger">Salle à Manger</mat-radio-button>
+            <mat-radio-button value="extérieur et jardin">Extérieur & Jardin</mat-radio-button>
+            <mat-radio-button value="chambre enfant">Chambre Enfant</mat-radio-button>
+            <mat-radio-button value="bureau">Bureau</mat-radio-button>
+            <mat-radio-button value="façade">Façade</mat-radio-button>
+            <mat-radio-button value="escalier">Escalier</mat-radio-button>
+            <mat-radio-button value="restaurant et café">Restaurant & Café</mat-radio-button>
+            <mat-radio-button value="immeuble">Immeuble</mat-radio-button>
+            
+            
+        
+    </mat-radio-group>
+
+    
+    
+    
+    <div>
+        <button mat-raised-button color="primary" (click)="addInspire()">Confirmer le nom et la categorie du produit</button>
+            
+            
+
+    </div>
+    
+    
+
+
+</form>
+<div *ngIf ="this.inspireForm.valid" class="custom-file">
+    <h3>Photo du produit confirmé</h3>
+    <app-upload-inspire-image class="lg:w-1/2 xlg:w-1/2 md:w-full sm:w-full 
+    self-centerd px-3 py-3" 
+    [inspireId]="createdInspire._id"
+(uploadPictureEvent)="refresh($event)">
+
+    </app-upload-inspire-image>
+</div>
+
+<div class="container flex-full px-10 py-1">
+
+
+    <mat-form-field class="px-12 py-4">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter"
+            class="rounded-b text-teal-900 px-12 py-3 shadow-md">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort
+        class="mat-elevation-z8 border-t-4 rounded-b text-teal-900 px-4 py-3 shadow-md">
+        
+       
+        <!-- name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom du Produit </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <!-- cat Column -->
+        <ng-container matColumnDef="cat">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Catégorie du Produit </th>
+            <td mat-cell *matCellDef="let element"> {{element.cat}} </td>
+        </ng-container>
+  
+        
+  
+  
+        <!-- Actions delete and update-->
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let row">
+                
+                <button mat-icon-button 
+                        matTooltip="Click to Delete" 
+                        class="iconbutton" 
+                        color="warn"
+                        (click)="deleteInspire(row._id)">
+                <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+          
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

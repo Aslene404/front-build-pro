@@ -69,6 +69,7 @@ export class DevisFormComponent implements OnInit {
         ])],
         entreprise: [''],
         numRegistre: [''],
+        about2:[''],
         cat: [''],
         subcat: ['']
       });
@@ -85,6 +86,7 @@ export class DevisFormComponent implements OnInit {
         ])],
         entreprise: [''],
         numRegistre: [''],
+        about2:[''],
         cat: [''],
         subcat: ['']
 
@@ -101,7 +103,7 @@ export class DevisFormComponent implements OnInit {
           Validators.required,
           Validators.pattern('[0-9]+|0-9]+[0-9]+[0-9]+[0-9]')
         ])],
-
+        about1:[''],
         cat1: [''],
         subcat1: ['']
       });
@@ -116,7 +118,7 @@ export class DevisFormComponent implements OnInit {
           Validators.required,
           Validators.pattern('[0-9]+|0-9]+[0-9]+[0-9]+[0-9]')
         ])],
-
+        about1:[''],
         cat1: [''],
         subcat1: ['']
 
@@ -133,7 +135,7 @@ export class DevisFormComponent implements OnInit {
         fullname: this.thirdFormGroup.value.fullname1,
         email: this.thirdFormGroup.value.email1,
         phone: this.thirdFormGroup.value.phone1,
-
+        about: this.thirdFormGroup.value.about1,
         cat: this.thirdFormGroup.value.cat1[0],
         subcat: this.thirdFormGroup.value.subcat1[0]
       }
@@ -144,6 +146,7 @@ export class DevisFormComponent implements OnInit {
         phone: this.secondFormGroup.value.phone,
         entreprise: this.secondFormGroup.value.entreprise,
         numRegistre: this.secondFormGroup.value.numRegistre,
+        about: this.thirdFormGroup.value.about2,
         cat: this.secondFormGroup.value.cat[0],
         subcat: this.secondFormGroup.value.subcat[0]
       }

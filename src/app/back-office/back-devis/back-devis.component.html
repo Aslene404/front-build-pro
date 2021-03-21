@@ -63,6 +63,11 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
             <td mat-cell *matCellDef="let element"> {{element.subcat}} </td>
         </ng-container>
+        <!-- details Column -->
+        <ng-container matColumnDef="details">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Détails Sur Le Devis</th>
+            <td mat-cell *matCellDef="let element"> {{element.about}} </td>
+        </ng-container>
   
   
         <!-- Actions delete and update-->

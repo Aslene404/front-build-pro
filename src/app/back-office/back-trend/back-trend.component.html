@@ -1,0 +1,83 @@
+<form [formGroup]="trendForm">
+    <h3>Les Produits</h3>
+
+    <mat-form-field appearance="fill" >
+        <mat-label>Nom / description du produit </mat-label>
+        <input matInput placeholder="Entrez le nom / description du produit " required
+            formControlName="name">
+        <mat-icon matSuffix>label</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill" >
+        <mat-label>Prix du produit </mat-label>
+        <input matInput placeholder="Prix du produit " required
+            formControlName="price">
+        <mat-icon matSuffix>attach_money</mat-icon>
+    </mat-form-field>
+    
+    <div>
+        <button mat-raised-button color="primary" (click)="addTrend()">Confirmer le nom et le prix du produit</button>
+            
+            
+
+    </div>
+    
+    
+
+
+</form>
+<div *ngIf ="this.trendForm.valid" class="custom-file">
+    <h3>Photo du produit confirmé</h3>
+    <app-upload-trend-image class="lg:w-1/2 xlg:w-1/2 md:w-full sm:w-full 
+    self-centerd px-3 py-3" 
+    [trendId]="createdTrend._id"
+(uploadPictureEvent)="refresh($event)">
+
+    </app-upload-trend-image>
+</div>
+
+<div class="container flex-full px-10 py-1">
+
+
+    <mat-form-field class="px-12 py-4">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter"
+            class="rounded-b text-teal-900 px-12 py-3 shadow-md">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort
+        class="mat-elevation-z8 border-t-4 rounded-b text-teal-900 px-4 py-3 shadow-md">
+        
+       
+        <!-- name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom du Produit </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <!-- price Column -->
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Prix du Produit </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+  
+        
+  
+  
+        <!-- Actions delete and update-->
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let row">
+                
+                <button mat-icon-button 
+                        matTooltip="Click to Delete" 
+                        class="iconbutton" 
+                        color="warn"
+                        (click)="deleteTrend(row._id)">
+                <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+          
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

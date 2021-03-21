@@ -15,6 +15,44 @@ http://www.templatemo.com/tm-506-tinker
 body {
 	overflow-x: hidden;
 }
+/* The sidebar menu */
+.sidenav {
+	height: 100%; /* Full-height: remove this if you want "auto" height */
+	width: 160px; /* Set the width of the sidebar */
+	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	background-color: #111; /* Black */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+	color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .main {
+	margin-left: 160px; /* Same as the width of the sidebar */
+	padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+  }
 
 ul {
 	list-style: none;
@@ -331,20 +369,20 @@ bootstrap.min.css:5
 	padding: 0px;
 }
 
-#portfolio .section-heading {
+#portfolio2 .section-heading {
 	padding-top: 200px;
 	padding-bottom: 200px;
-	background-color: #33c1cf;
+	background-color:tomato;
 	height: 732px;
 	margin-left: -100vh;
 	padding-left: 100vh;
 }
 
-#portfolio .project-item {
+#portfolio2 .project-item {
 	margin: 0px -16px;
 }
 
-#portfolio .section-heading h4 {
+#portfolio2 .section-heading h4 {
 	margin-top: 0px;
 	font-size: 20px;
 	text-transform: uppercase;
@@ -353,18 +391,119 @@ bootstrap.min.css:5
 	letter-spacing: 1px;
 }
 
-#portfolio .section-heading .line-dec {
+#portfolio2 .section-heading .line-dec {
 	width: 270px;
 	height: 1px;
 	background-color: rgba(250, 250, 250, 0.5);
 	margin: 20px 0px 15px 0px;
 }
 
-#portfolio .section-heading p {
+#portfolio2 .section-heading p {
+	color: #fff;
+	padding-right: 70px;
+}
+#portfolio3 .section-heading {
+	padding-top: 200px;
+	padding-bottom: 200px;
+	background-color:yellowgreen;
+	height: 732px;
+	margin-left: -100vh;
+	padding-left: 100vh;
+}
+
+#portfolio3 .project-item {
+	margin: 0px -16px;
+}
+
+#portfolio3 .section-heading h4 {
+	margin-top: 0px;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #fff;
+	letter-spacing: 1px;
+}
+
+#portfolio3 .section-heading .line-dec {
+	width: 270px;
+	height: 1px;
+	background-color: rgba(250, 250, 250, 0.5);
+	margin: 20px 0px 15px 0px;
+}
+
+#portfolio3 .section-heading p {
 	color: #fff;
 	padding-right: 70px;
 }
 
+
+
+#portfolio4 .section-heading {
+	padding-top: 200px;
+	padding-bottom: 200px;
+	background-color:royalblue;
+	height: 732px;
+	margin-left: -100vh;
+	padding-left: 100vh;
+}
+
+#portfolio4 .project-item {
+	margin: 0px -16px;
+}
+
+#portfolio4 .section-heading h4 {
+	margin-top: 0px;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #fff;
+	letter-spacing: 1px;
+}
+
+#portfolio4 .section-heading .line-dec {
+	width: 270px;
+	height: 1px;
+	background-color: rgba(250, 250, 250, 0.5);
+	margin: 20px 0px 15px 0px;
+}
+
+#portfolio4 .section-heading p {
+	color: #fff;
+	padding-right: 70px;
+}
+#portfolio1 .section-heading {
+	padding-top: 200px;
+	padding-bottom: 200px;
+	background-color: #33c1cf;
+	height: 732px;
+	margin-left: -100vh;
+	padding-left: 100vh;
+}
+
+#portfolio1 .project-item {
+	margin: 0px -16px;
+}
+
+#portfolio1 .section-heading h4 {
+	margin-top: 0px;
+	font-size: 20px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #fff;
+	letter-spacing: 1px;
+}
+
+#portfolio1 .section-heading .line-dec {
+	width: 270px;
+	height: 1px;
+	background-color: rgba(250, 250, 250, 0.5);
+	margin: 20px 0px 15px 0px;
+}
+
+#portfolio1 .section-heading p {
+	color: #fff;
+	padding-right: 70px;
+}
 
 #testimonial {
 	background-color: #f7c552;

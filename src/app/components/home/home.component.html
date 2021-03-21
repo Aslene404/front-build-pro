@@ -1,719 +1,953 @@
-<div class="header" style="height: max-content;">
-    <div class="container">
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="navbar-header">
-                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#main-nav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand scroll-top"><em>B</em>uildPro</a>
-            </div>
-            <!--/.navbar-header-->
-            <div id="main-nav" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#" class="scroll-top">Acceuil</a></li>
+<div class="main">
 
-                    <li><a href="#" class="scroll-link" data-id="portfolio">Galerie Des Services</a></li>
-                    <li><a href="#" class="scroll-link" data-id="blog">Nos Travaux</a></li>
-                    <li>
-                        <a 
-                            class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                            [routerLink]='["/entreprise"]' mat-button>
-                            <span class="material-icons">
-                                storefront
+    <div class="header" style="height: max-content;">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top"><em>B</em>uildPro</a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-top">Acceuil</a></li>
+
+                        <li><a href="#" class="scroll-link" data-id="portfolio1">Galerie Des Services</a></li>
+                        <li><a href="#" class="scroll-link" data-id="blog">Nos Travaux</a></li>
+                        <li>
+                            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                [routerLink]='["/entreprise"]' mat-button>
+                                <span class="material-icons">
+                                    storefront
                                 </span>
-                            Espace entreprise
-                        </a>
+                                Espace entreprise
+                            </a>
 
-                        
 
-                    </li>
-                    <li *ngIf="currentUser">
 
-                        <a 
-                        class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                        [routerLink]='["/devis"]' mat-button>
-                        <mat-icon>card_travel</mat-icon>
-                        Demander Votre Devis
-                    </a>
+                        </li>
+                        <li *ngIf="currentUser">
 
-                    </li>
-                    <li>
-                        <a *ngIf="currentUser && currentUser.role=='ENTREPRISE'"
-                            class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                            [routerLink]='["/entreprise/add"]' mat-button>
-                            <mat-icon>library_add</mat-icon>
-                            entreprise
-                        </a>
-                    </li>
+                            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                [routerLink]='["/devis"]' mat-button>
+                                <mat-icon>card_travel</mat-icon>
+                                Demander Votre Devis
+                            </a>
 
-                    <li><a href="#" class="scroll-link" data-id="contact-us">Contactez-nous</a></li>
-                    
-                    <li>
-                        <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                            *ngIf="!currentUser" [routerLink]='["/signin"]' routerLinkActive="active-link"
-                            [routerLinkActive]='["active","inactive"]' mat-button>
-                            <mat-icon>person</mat-icon>
-                            Connexion
+                        </li>
+                        <li>
+                            <a *ngIf="currentUser && currentUser.role=='ENTREPRISE'"
+                                class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                [routerLink]='["/entreprise/add"]' mat-button>
+                                <mat-icon>library_add</mat-icon>
+                                entreprise
+                            </a>
+                        </li>
 
-                        </a>
-                    </li>
-                    
-                    <li *ngIf="currentUser">
+                        <li><a href="#" class="scroll-link" data-id="contact-us">Contactez-nous</a></li>
 
-                        <app-user-logout [currentUser]="currentUser" (onLogout)="logout()"></app-user-logout>
+                        <li>
+                            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                *ngIf="!currentUser" [routerLink]='["/signin"]' routerLinkActive="active-link"
+                                [routerLinkActive]='["active","inactive"]' mat-button>
+                                <mat-icon>person</mat-icon>
+                                Connexion
 
-                    </li>
-                    <li>
+                            </a>
+                        </li>
 
-                        <a *ngIf="currentUser && currentUser.role=='ADMIN'"
-                            class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                            [routerLink]='["/back/home"]' mat-button>
-                            <mat-icon>menu</mat-icon>
-                            Admin
-                        </a>
+                        <li *ngIf="currentUser">
 
-                    </li>
+                            <app-user-logout [currentUser]="currentUser" (onLogout)="logout()"></app-user-logout>
 
-                </ul>
-            </div>
-            <!--/.navbar-collapse-->
-        </nav>
-        <!--/.navbar-->
+                        </li>
+                        <li>
+
+                            <a *ngIf="currentUser && currentUser.role=='ADMIN'"
+                                class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                [routerLink]='["/back/home"]' mat-button>
+                                <mat-icon>menu</mat-icon>
+                                Admin
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
     </div>
-    <!--/.container-->
-</div>
-<!--/.header-->
-<div class="parallax-content baner-content" id="home">
-    <div class="container">
-        <div class="text-content">
-            <h2><em>Build &nbsp;	 </em> <span>Your &nbsp;	Best</span></h2>
-            
-            <p style="font-family:courier,arial,helvetica; font-size: xx-large;">
-                Chaque lot. Chaque métier. Chaque jour.</p>
-
-            <div class="primary-white-button">
-                <a href="#" class="scroll-link" data-id="about">Commencer</a>
-            </div>
+    <!--/.header-->
+    <!-- Side navigation -->
+    <div class="sidenav">
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <p style="font-family:courier,arial,helvetica; font-size: x-large; color: coral;">
+            Publicité</p>
+        <div *ngFor="let pub of myPubs ;let i=index" (click)="animation($event)">
+            <p style="font-family:courier,arial,helvetica; font-size: medium; color: white;">{{pub.name}} </p>
+            <img src={{pub.image_url}}>
+            <p style="font-family:courier,arial,helvetica; font-size:medium; color: white;">{{pub.price}} DT </p>
         </div>
     </div>
-</div>
-<section id="about" class="page-section">
-    <div style="text-align: center;">
-        <h1 style="color: white; font-weight: bolder; font-family: 'Times New Roman', Times, serif;">Comment ça
-            fonctionne</h1>
-    </div>
-    <mat-horizontal-stepper #stepper>
+    <div class="parallax-content baner-content" id="home">
+        <div class="container">
+            <div class="text-content">
+                <h2><em>Build &nbsp; </em> <span>Your &nbsp; Best</span></h2>
 
-        <mat-step label="Créer votre compte">
-            <div class="primary-blue-button" style="text-align: center;">
-                <a [routerLink]='["/signup"]' class="scroll-link">Inscription</a>
-            </div>
-        </mat-step>
-        <mat-step label="Se connecter à votre compte">
-            <div class="primary-blue-button" style="text-align: center;">
-                <a [routerLink]='["/signin"]' class="scroll-link">Connexion</a>
-            </div>
-        </mat-step>
-        <mat-step label="Demander votre devis">
-            <div class="primary-blue-button" style="text-align: center;">
-                <a [routerLink]='["/devis"]' class="scroll-link">Demande de devis</a>
-            </div>
-        </mat-step>
+                <p style="font-family:courier,arial,helvetica; font-size: xx-large;">
+                    Chaque lot. Chaque métier. Chaque jour.</p>
 
-    </mat-horizontal-stepper>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="service-item">
-                    <div class="icon">
-                        <img src="assets/img/service_icon_01.png" alt="">
-                    </div>
-                    <h4>Nos Services</h4>
-                    <div class="line-dec"></div>
-                    
-                    <div class="primary-blue-button">
-                        <a href="#" class="scroll-link" data-id="portfolio">En savoir Plus</a>
-                    </div>
+                <div class="primary-white-button">
+                    <a href="#" class="scroll-link" data-id="about">Commencer</a>
+
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="service-item">
-                    <div class="icon">
-                        <img src="assets/img/service_icon_02.png" alt="">
-                    </div>
-                    <h4>Types De Travaux</h4>
-                    <div class="line-dec"></div>
-                    
-                    <div class="primary-blue-button">
-                        <a href="#" class="scroll-link" data-id="blog">En savoir Plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="service-item">
-                    <div class="icon">
-                        <img src="assets/img/service_icon_03.png" alt="">
-                    </div>
-                    <h4>Nos Partenaires</h4>
-                    <div class="line-dec"></div>
-                    
-                    <div class="primary-blue-button">
-                        <a href="#" class="scroll-link" [routerLink]='["/entreprise"]'>En savoir Plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="service-item">
-                    <div class="icon">
-                        <img src="assets/img/service_icon_04.png" alt="">
-                    </div>
-                    <h4>Contactez-nous</h4>
-                    <div class="line-dec"></div>
-                    
-                    <div class="primary-blue-button">
-                        <a href="#" class="scroll-link" data-id="contact-us">En savoir Plus</a>
-                    </div>
+                <div class="primary-blue-button">
+                    <a href="#" class="scroll-link" data-id="portfolio4">Inspirer / Découvrir</a>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<section id="portfolio">
-    <div class="content-wrapper">
-        <div class="inner-container container">
+    <section id="about" class="page-section">
+        <div style="text-align: center;">
+            <h1 style="color: white; font-weight: bolder; font-family: 'Times New Roman', Times, serif;">Comment ça
+                fonctionne</h1>
+        </div>
+        <mat-horizontal-stepper #stepper>
+
+            <mat-step label="Créer votre compte">
+                <div class="primary-blue-button" style="text-align: center;">
+                    <a [routerLink]='["/signup"]' class="scroll-link">Inscription</a>
+                </div>
+            </mat-step>
+            <mat-step label="Se connecter à votre compte">
+                <div class="primary-blue-button" style="text-align: center;">
+                    <a [routerLink]='["/signin"]' class="scroll-link">Connexion</a>
+                </div>
+            </mat-step>
+            <mat-step label="Demander votre devis">
+                <div class="primary-blue-button" style="text-align: center;">
+                    <a [routerLink]='["/devis"]' class="scroll-link">Demande de devis</a>
+                </div>
+            </mat-step>
+
+        </mat-horizontal-stepper>
+        <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <div class="section-heading">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service_icon_01.png" alt="">
+                        </div>
                         <h4>Nos Services</h4>
                         <div class="line-dec"></div>
-                        
-                        <div class="filter-categories">
-                            <ul class="project-filter">
-                               
-                                <li class="filter" data-filter="branding"><span>Garantie et sérénité</span></li>
-                                <li class="filter" data-filter="graphic"><span>Accompagnement et suivi  sur-mesure</span></li>
-                                <li class="filter" data-filter="nature"><span>Projet clé en main</span></li>
-                                <li class="filter" data-filter="animal"><span>Accompagner  les artisans et professionnels du bâtiment </span></li>
+
+                        <div class="primary-blue-button">
+                            <a href="#" class="scroll-link" data-id="portfolio1">En savoir Plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service_icon_02.png" alt="">
+                        </div>
+                        <h4>Types De Travaux</h4>
+                        <div class="line-dec"></div>
+
+                        <div class="primary-blue-button">
+                            <a href="#" class="scroll-link" data-id="blog">En savoir Plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service_icon_03.png" alt="">
+                        </div>
+                        <h4>Nos Partenaires</h4>
+                        <div class="line-dec"></div>
+
+                        <div class="primary-blue-button">
+                            <a href="#" class="scroll-link" [routerLink]='["/entreprise"]'>En savoir Plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service_icon_04.png" alt="">
+                        </div>
+                        <h4>Contactez-nous</h4>
+                        <div class="line-dec"></div>
+
+                        <div class="primary-blue-button">
+                            <a href="#" class="scroll-link" data-id="contact-us">En savoir Plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service_icon_05.png" alt="">
+                        </div>
+                        <h4>Nos Produits</h4>
+                        <div class="line-dec"></div>
+
+                        <div class="primary-blue-button">
+                            <a href="#" class="scroll-link" data-id="portfolio2">En savoir Plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service_icon_06.png" alt="">
+                        </div>
+                        <h4>Les Plus Demandés</h4>
+                        <div class="line-dec"></div>
+
+                        <div class="primary-blue-button">
+                            <a href="#" class="scroll-link" data-id="portfolio3">En savoir Plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio1">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Nos Services</h4>
+                            <div class="line-dec"></div>
+
+                            <div class="filter-categories">
+                                <ul class="project-filter">
+
+                                    <li class="filter" data-filter="branding"><span>Garantie et sérénité</span></li>
+                                    <li class="filter" data-filter="graphic"><span>Accompagnement et suivi
+                                            sur-mesure</span>
+                                    </li>
+                                    <li class="filter" data-filter="nature"><span>Projet clé en main</span></li>
+                                    <li class="filter" data-filter="animal"><span>Accompagner les artisans et
+                                            professionnels
+                                            du bâtiment </span></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="projects-holder-3">
+                            <div class="projects-holder">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 project-item mix branding">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="assets/img/portfolio_big_item_01.jpg"
+                                                    data-lightbox="image-1"><img
+                                                        src="assets/img/portfolio_item_01.jpg"></a>
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    De A à Z, dans toutes les situations, un chantier commencé avec
+                                                    Build
+                                                    pro ira jusqu’à la réception en toute sécurité</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 project-item mix graphic">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="assets/img/portfolio_big_item_03.jpg"
+                                                    data-lightbox="image-1"><img
+                                                        src="assets/img/portfolio_item_03.jpg"></a>
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    De la conception aux finitions, l’équipe Build Pro assure un suivi
+                                                    du
+                                                    projet à toutes les étapes, accompagnée d’entrepreneurs labellisés
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix nature">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="assets/img/portfolio_big_item_04.jpg"
+                                                    data-lightbox="image-1"><img
+                                                        src="assets/img/portfolio_item_04.jpg"></a>
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    Des professionnels ,des coach et des experts de l’équipe BuildPro
+                                                    assurent la réalisation des projets clé en main (de la conception
+                                                    jusqu’à la réception ) </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix animal">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="assets/img/portfolio_big_item_05.jpg"
+                                                    data-lightbox="image-1"><img
+                                                        src="assets/img/portfolio_item_05.jpg"></a>
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    Une équipe de build pro permet d’accompagner les artisans et les
+                                                    professionnels à la digitalisation et l’innovation du bâtiment</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="tabs-content" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="wrapper">
+                    <div class="col-md-4">
+                        <div class="section-heading">
+                            <h4>Nos Travaux</h4>
+                            <div class="line-dec"></div>
+
+                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                                <li><a href="#tab1" class="active">Construction & Rénovation ►</a></li>
+                                <li><a href="#tab2">Architecture & Bureau d'études ►</a></li>
+                                <li><a href="#tab3">Freelance ►</a></li>
+                                <li><a href="#tab4">Extension ►</a></li>
+                                <li><a [routerLink]='["/devis"]'>Toiture </a></li>
+                                <li><a [routerLink]='["/devis"]'>Toit-terrasse</a></li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="section-heading">
+
+                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                                <li><a href="#tab5">Démolition ►</a></li>
+                                <li><a href="#tab6">Terrassement ►</a></li>
+                                <li><a [routerLink]='["/devis"]'>Assainissement</a></li>
+                                <li><a href="#tab7">Mur - Cloison - Plafond ►</a></li>
+                                <li><a [routerLink]='["/devis"]'>Mur extérieur - Façade </a></li>
+                                <li><a href="#tab8">Sol - Plancher ►</a></li>
+
+                            </ul>
+
+                        </div>
+                        <div class="section-heading">
+
+                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                                <li><a href="#tab9">Revêtement ►</a></li>
+                                <li><a [routerLink]='["/devis"]'>Plomberie</a></li>
+                                <li><a [routerLink]='["/devis"]'>Electricité </a></li>
+                                <li><a href="#tab10">Domotique ►</a></li>
+                                <li><a [routerLink]='["/devis"]'>Cuisine </a></li>
+                                <li><a href="#tab11">Salle de bains - Spa ►</a></li>
+
+                            </ul>
+
+                        </div>
+                        <div class="section-heading">
+
+                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                                <li><a [routerLink]='["/devis"]'>Isolation - Etanchéité</a></li>
+                                <li><a [routerLink]='["/devis"]'>Chauffage - Cheminée</a></li>
+                                <li><a [routerLink]='["/devis"]'>Climatisation </a></li>
+                                <li><a href="#tab12">Porte - Fenêtre - Volet ►</a></li>
+                                <li><a [routerLink]='["/devis"]'>Escalier - Garde-corps </a></li>
+                                <li><a [routerLink]='["/devis"]'>Dressing</a></li>
+
+                            </ul>
+
+                        </div>
+                        <div class="section-heading">
+
+                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                                <li><a [routerLink]='["/devis"]'>Energie renouvelable </a></li>
+
 
                             </ul>
                         </div>
+
+
+
+                    </div>
+                    <div class="col-md-8">
+                        <section id="first-tab-group" class="tabgroup">
+                            <div id="tab1">
+                                <img src="assets/img/blog_item_01.jpg" alt="">
+                                <div class="text-content">
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation de maison</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation d’immeuble</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation d’appartement</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Aménagement de loft</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation de pièce à vivre</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation de cave, grenier, garage
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Transformation d’une pièce existante</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Transformation en pièce à vivre de cave, grenier,
+                                            etc</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation péniche habitable</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation des menuiseries (porte et fenêtre)</a>
+                                    </h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Travaux de restauration patrimoine historique</a></h4>
+
+                                </div>
+                            </div>
+                            <div id="tab2">
+                                <img src="assets/img/blog_item_02.jpg" alt="">
+                                <div class="text-content">
+                                    <h4><a [routerLink]='["/devis"]'>Architecture d’intérieur</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Architecture (construction neuve, extension,
+                                            etc)</a>
+                                    </h4>
+                                    <h4><a [routerLink]='["/devis"]'>Décoration d’intérieur</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Plans pour maison individuelle</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Plans d’aménagement intérieur
+                                        </a></h4>
+
+                                    <h4><a [routerLink]='["/devis"]'>Déclaration préalable de travaux</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Bureau d’études structure</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Bureau d’études fluides (chauffage, ventilation, etc)</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Assurance Dommages Ouvrage
+                                        </a></h4>
+
+                                </div>
+                            </div>
+                            <div id="tab3">
+                                <img src="assets/img/blog_item_03.jpg" alt="">
+                                <div class="text-content">
+                                    <h4><a [routerLink]='["/devis"]'>Architecture</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Projeteur</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Ingénieur</a></h4>
+                                </div>
+                            </div>
+                            <div id="tab4">
+                                <img src="assets/img/blog_item_04.jpg" alt="">
+                                <div class="text-content">
+                                    <h4><a [routerLink]='["/devis"]'>Extension de maison en maçonnerie</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Surélévation en maçonnerie</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Aménagement de combles existants
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Construction de mezzanine</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Construction de garage</a></h4>
+                                </div>
+                            </div>
+                            <div id="tab5">
+                                <img src="assets/img/blog_item_05.jpg" alt="">
+                                <div class="text-content">
+                                    <h4><a [routerLink]='["/devis"]'>Démolition mur porteur - agrandir une pièce</a>
+                                    </h4>
+                                    <h4><a [routerLink]='["/devis"]'>Démolition mur non porteur - agrandir une pièce</a>
+                                    </h4>
+                                    <h4><a [routerLink]='["/devis"]'>Travaux de démolition (à déterminer)
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Travaux d’ouverture (murs porteurs)</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Travaux d’ouverture (murs non porteurs)
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Ouverture pour escalier</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Sciage de paroi béton (ouverture)</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Travaux de carottage paroi béton (trou)</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Déblaiement - enlèvement de gravats</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Diagnostic démolition - Etude Structure
+                                        </a></h4>
+                                </div>
+                            </div>
+                            <div id="tab6">
+                                <img src="assets/img/blog_item_06.jpg" alt="">
+                                <div class="text-content">
+                                    <h4><a [routerLink]='["/devis"]'>Terrassement pour niveler un terrain</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Terrassement pour créer une plate-forme</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+
+                                            Réalisation d'un mur de soutènement
+
+
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Enrochement</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Excavation (creux dans un terrain)
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Travaux de terrassement (à déterminer)</a></h4>
+
+                                </div>
+                            </div>
+                            <div id="tab7">
+                                <img src="assets/img/blog_item_07.jpg" alt="">
+                                <div class="text-content">
+                                    <h4><a [routerLink]='["/devis"]'>Construction mur en maçonnerie</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Rénovation et reprise de mur</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+
+                                            Isolation thermique des murs par l'intérieur (ITI)
+
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Réalisation de mur végétalisé</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Travaux d’ouverture
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Etude structure mur porteur
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Fabrication et pose de verrière
+
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Plafond
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Ornement plâtre (corniche, moulure, rosace)
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Caisson décoratif pour conduit de cheminée
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Cloison
+                                        </a></h4>
+
+                                </div>
+                            </div>
+                            <div id="tab8">
+                                <img src="assets/img/blog_item_08.jpg" alt="">
+                                <div class="text-content">
+
+                                    <h4><a [routerLink]='["/devis"]'>Réalisation de dalle en béton armé</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Réalisation de chape béton</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Réalisation de plancher</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Renforcement de plancher</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Construction chape sèche pour plancher bois
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Lissage de sol intérieur existant (ragréage)</a>
+                                    </h4>
+                                    <h4><a [routerLink]='["/devis"]'>Ouverture pour escalier</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Etude structure plancher</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Pose de barre de seuil entre 2 pièces</a></h4>
+
+
+
+                                </div>
+                            </div>
+                            <div id="tab9">
+                                <img src="assets/img/blog_item_09.jpg" alt="">
+                                <div class="text-content">
+
+                                    <h4><a [routerLink]='["/devis"]'>Carrelage</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Parquet et sol stratifié</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Moquette, sisal, PVC, lino</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Marbre, pierre et galet</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Enduit, béton ciré et crépis
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Plinthe
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Installation de crédence</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Peinture, papier peint</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Bardage et parement mural</a></h4>
+
+                                    <h4><a [routerLink]='["/devis"]'>Pose de lambris intérieur</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Nettoyage en profondeur (sablage, gommage)</a></h4>
+
+
+
+
+                                </div>
+                            </div>
+                            <div id="tab10">
+                                <img src="assets/img/blog_item_10.jpg" alt="">
+                                <div class="text-content">
+
+                                    <h4><a [routerLink]='["/devis"]'>Pose de système de commande domotique</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Installation système de suivi conso énergétique</a>
+                                    </h4>
+                                    <h4><a [routerLink]='["/devis"]'>Installation domotique pour PMR
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Régulation radiateur à eau</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Régulation pour plancher chauffant à eau
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Régulation pour plancher chauffant électrique
+
+                                        </a></h4>
+
+
+
+
+                                </div>
+                            </div>
+                            <div id="tab11">
+                                <img src="assets/img/blog_item_11.jpg" alt="">
+                                <div class="text-content">
+
+                                    <h4><a [routerLink]='["/devis"]'>Installation de salle de bains complète</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Installation de sanitaire (baignoire, bac à douche,
+                                            WC,
+                                            bidet)</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Création d'une douche à l'italienne
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Installation d'une cabine de douche</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Installation de pare baignoire - pare douche
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Remplacement d'une colonne de douche
+
+
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Mobilier</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Installation sèche-serviette électrique</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Réalisation de joint silicone pour cuisine et salle
+                                            de
+                                            bains</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Jacuzzi, hammam et sauna</a></h4>
+
+
+
+
+
+
+                                </div>
+                            </div>
+                            <div id="tab12">
+                                <img src="assets/img/blog_item_12.jpg" alt="">
+                                <div class="text-content">
+
+                                    <h4><a [routerLink]='["/devis"]'>Porte</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Fenêtre et porte-fenêtre</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Isolation porte et fenêtre
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Store et volet</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Baie vitrée
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Remplacement de vitre
+
+
+
+                                        </a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Création-restauration de vitrail</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>
+                                            Serrure (installation ou remplacement)</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Saut de loup (lumière naturelle en sous-sol)</a>
+                                    </h4>
+                                    <h4><a [routerLink]='["/devis"]'>Installation de puits de lumière sur toit-terrasse
+                                            (skydome)</a></h4>
+                                    <h4><a [routerLink]='["/devis"]'>Pose de grille anti-effraction devant fenêtre</a>
+                                    </h4>
+
+
+
+
+
+
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="projects-holder-3">
-                        <div class="projects-holder">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 project-item mix branding">
-                                    <div class="thumb">
-                                        <div class="image">
-                                            <a href="assets/img/portfolio_big_item_01.jpg" data-lightbox="image-1"><img
-                                                    src="assets/img/portfolio_item_01.jpg"></a>
-                                                    <p style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                        De A à Z, dans toutes les situations, un chantier commencé avec Build pro ira jusqu’à la réception en toute sécurité</p>
+            </div>
+        </div>
+    </div>
+    <section id="portfolio4">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Inspirer / Découvrir</h4>
+                            <div class="line-dec"></div>
+
+                            <div class="filter-categories">
+                                <ul class="project-filter">
+
+                                    <li class="filter" data-filter="cuisine"><span>Cuisine</span></li>
+                                    <li class="filter" data-filter="salle de bain et wc"><span> Salle De Bain et
+                                            WC</span>
+                                    </li>
+                                    <li class="filter" data-filter="chambre adulte"><span>Chambre Adulte</span></li>
+                                    <li class="filter" data-filter="piéce à vivre"><span>Piéce à Vivre </span></li>
+                                    <li class="filter" data-filter="salle à manger"><span>Salle à Manger</span></li>
+                                    <li class="filter" data-filter="extérieur et jardin"><span>Extérieur & Jardin</span>
+                                    </li>
+                                    <li class="filter" data-filter="chambre enfant"><span>Chambre Enfant</span></li>
+                                    <li class="filter" data-filter="bureau"><span>Bureau</span></li>
+                                    <li class="filter" data-filter="façade"><span>Façade</span></li>
+                                    <li class="filter" data-filter="escalier"><span>Escalier</span></li>
+                                    <li class="filter" data-filter="restaurant et café"><span>Restaurant & Café</span>
+                                    </li>
+                                    <li class="filter" data-filter="immeuble"><span>Immeuble</span></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="projects-holder-3">
+                            <div class="projects-holder">
+                                <div class="row">
+                                    <div *ngFor="let inspire of myInspires ;let i=index" (click)="animation($event)">
+                                        <div class="col-md-6 col-sm-6 project-item mix {{inspire.cat}} ">
+                                            <div class="thumb">
+                                                <div class="image">
+                                                    <a href={{inspire.image_url}}
+                                                        data-lightbox="image-1"><img
+                                                            src={{inspire.image_url}}></a>
+                                                            <p
+                                                            style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                            {{inspire.name}}</p>
+                                                            
+                                                </div>
+                                            </div>
                                         </div>
+
+
+
+
                                     </div>
                                 </div>
-                                
-                                <div class="col-md-6 col-sm-6 project-item mix graphic">
-                                    <div class="thumb">
-                                        <div class="image">
-                                            <a href="assets/img/portfolio_big_item_03.jpg" data-lightbox="image-1"><img
-                                                    src="assets/img/portfolio_item_03.jpg"></a>
-                                                    <p style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                        De la conception aux finitions, l’équipe Build Pro  assure un suivi du projet à toutes les étapes, accompagnée d’entrepreneurs labellisés</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 project-item mix nature">
-                                    <div class="thumb">
-                                        <div class="image">
-                                            <a href="assets/img/portfolio_big_item_04.jpg" data-lightbox="image-1"><img
-                                                    src="assets/img/portfolio_item_04.jpg"></a>
-                                                    <p style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                        Des professionnels ,des coach  et des  experts de l’équipe BuildPro assurent la réalisation des projets clé en main (de la conception jusqu’à la réception ) </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 project-item mix animal">
-                                    <div class="thumb">
-                                        <div class="image">
-                                            <a href="assets/img/portfolio_big_item_05.jpg" data-lightbox="image-1"><img
-                                                    src="assets/img/portfolio_item_05.jpg"></a>
-                                                    <p style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                        Une équipe de build pro permet d’accompagner les artisans et les professionnels à la digitalisation et l’innovation  du bâtiment</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<div class="tabs-content" id="blog">
-    <div class="container">
-        <div class="row">
-            <div class="wrapper">
-                <div class="col-md-4">
+    </section>
+    <section id="portfolio2">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Nos Produits</h4>
+                            <div class="line-dec"></div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="projects-holder-3">
+                            <div class="projects-holder">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 project-item  ">
+                                        <div class="thumb" *ngFor="let product of myProducts ;let i=index"
+                                            (click)="animation($event)">
+                                            <div class="image">
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    {{product.name}}</p>
+                                                <a href={{product.image_url}} data-lightbox="image-1"><img
+                                                        src={{product.image_url}}></a>
+                                                
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    {{product.price}} DT</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio3">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>Les Plus Demandés</h4>
+                            <div class="line-dec"></div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="projects-holder-3">
+                            <div class="projects-holder">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 project-item  ">
+                                        <div class="thumb" *ngFor="let trend of myTrends ;let i=index"
+                                            (click)="animation($event)">
+                                            <div class="image">
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    {{trend.name}}</p>
+                                                <a href={{trend.image_url}} data-lightbox="image-1"><img
+                                                        src={{trend.image_url}}></a>
+                                                
+                                                <p
+                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                    {{trend.price}} DT</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="section-heading">
-                        <h4>Nos Travaux</h4>
+                        <h4>Contactez-nous</h4>
                         <div class="line-dec"></div>
 
-                        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                            <li><a href="#tab1" class="active">Construction & Rénovation ►</a></li>
-                            <li><a href="#tab2">Architecture & Bureau d'études ►</a></li>
-                            <li><a href="#tab3">Freelance ►</a></li>
-                            <li><a href="#tab4">Extension ►</a></li>
-                            <li><a [routerLink]='["/devis"]'>Toiture </a></li>
-                            <li><a [routerLink]='["/devis"]'>Toit-terrasse</a></li>
-
-                        </ul>
-
-                    </div>
-
-                    <div class="section-heading">
-
-                        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                            <li><a href="#tab5">Démolition ►</a></li>
-                            <li><a href="#tab6">Terrassement ►</a></li>
-                            <li><a [routerLink]='["/devis"]'>Assainissement</a></li>
-                            <li><a href="#tab7">Mur - Cloison - Plafond ►</a></li>
-                            <li><a [routerLink]='["/devis"]'>Mur extérieur - Façade </a></li>
-                            <li><a href="#tab8">Sol - Plancher ►</a></li>
-
-                        </ul>
-
-                    </div>
-                    <div class="section-heading">
-
-                        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                            <li><a href="#tab9">Revêtement ►</a></li>
-                            <li><a [routerLink]='["/devis"]'>Plomberie</a></li>
-                            <li><a [routerLink]='["/devis"]'>Electricité </a></li>
-                            <li><a href="#tab10">Domotique ►</a></li>
-                            <li><a [routerLink]='["/devis"]'>Cuisine </a></li>
-                            <li><a href="#tab11">Salle de bains - Spa ►</a></li>
-
-                        </ul>
-
-                    </div>
-                    <div class="section-heading">
-
-                        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                            <li><a [routerLink]='["/devis"]'>Isolation - Etanchéité</a></li>
-                            <li><a [routerLink]='["/devis"]'>Chauffage - Cheminée</a></li>
-                            <li><a [routerLink]='["/devis"]'>Climatisation </a></li>
-                            <li><a href="#tab12">Porte - Fenêtre - Volet ►</a></li>
-                            <li><a [routerLink]='["/devis"]'>Escalier - Garde-corps </a></li>
-                            <li><a [routerLink]='["/devis"]'>Dressing</a></li>
-
-                        </ul>
-
-                    </div>
-                    <div class="section-heading">
-
-                        <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                            <li><a [routerLink]='["/devis"]'>Energie renouvelable </a></li>
-
-
-                        </ul>
-                    </div>
-
-
-
-                </div>
-                <div class="col-md-8">
-                    <section id="first-tab-group" class="tabgroup">
-                        <div id="tab1">
-                            <img src="assets/img/blog_item_01.jpg" alt="">
-                            <div class="text-content">
-                                <h4><a [routerLink]='["/devis"]'>Rénovation de maison</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Rénovation d’immeuble</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Rénovation d’appartement</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Aménagement de loft</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Rénovation de pièce à vivre</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Rénovation de cave, grenier, garage
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Transformation d’une pièce existante</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Transformation en pièce à vivre de cave, grenier, etc</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Rénovation péniche habitable</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Rénovation des menuiseries (porte et fenêtre)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Travaux de restauration patrimoine historique</a></h4>
-
-                            </div>
+                        <div class="pop-button">
+                            <h4>Envoyez Un Message</h4>
                         </div>
-                        <div id="tab2">
-                            <img src="assets/img/blog_item_02.jpg" alt="">
-                            <div class="text-content">
-                                <h4><a [routerLink]='["/devis"]'>Architecture d’intérieur</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Architecture (construction neuve, extension, etc)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Décoration d’intérieur</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Plans pour maison individuelle</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Plans d’aménagement intérieur
-                                    </a></h4>
-
-                                <h4><a [routerLink]='["/devis"]'>Déclaration préalable de travaux</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Bureau d’études structure</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Bureau d’études fluides (chauffage, ventilation, etc)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Assurance Dommages Ouvrage
-                                    </a></h4>
-
-                            </div>
-                        </div>
-                        <div id="tab3">
-                            <img src="assets/img/blog_item_03.jpg" alt="">
-                            <div class="text-content">
-                                <h4><a [routerLink]='["/devis"]'>Architecture</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Projeteur</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Ingénieur</a></h4>
-                            </div>
-                        </div>
-                        <div id="tab4">
-                            <img src="assets/img/blog_item_04.jpg" alt="">
-                            <div class="text-content">
-                                <h4><a [routerLink]='["/devis"]'>Extension de maison en maçonnerie</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Surélévation en maçonnerie</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Aménagement de combles existants
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Construction de mezzanine</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Construction de garage</a></h4>
-                            </div>
-                        </div>
-                        <div id="tab5">
-                            <img src="assets/img/blog_item_05.jpg" alt="">
-                            <div class="text-content">
-                                <h4><a [routerLink]='["/devis"]'>Démolition mur porteur - agrandir une pièce</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Démolition mur non porteur - agrandir une pièce</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Travaux de démolition (à déterminer)
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Travaux d’ouverture (murs porteurs)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Travaux d’ouverture (murs non porteurs)
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Ouverture pour escalier</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Sciage de paroi béton (ouverture)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Travaux de carottage paroi béton (trou)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Déblaiement - enlèvement de gravats</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Diagnostic démolition - Etude Structure
-                                    </a></h4>
-                            </div>
-                        </div>
-                        <div id="tab6">
-                            <img src="assets/img/blog_item_06.jpg" alt="">
-                            <div class="text-content">
-                                <h4><a [routerLink]='["/devis"]'>Terrassement pour niveler un terrain</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Terrassement pour créer une plate-forme</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-
-                                        Réalisation d'un mur de soutènement
-
-
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Enrochement</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Excavation (creux dans un terrain)
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Travaux de terrassement (à déterminer)</a></h4>
-
-                            </div>
-                        </div>
-                        <div id="tab7">
-                            <img src="assets/img/blog_item_07.jpg" alt="">
-                            <div class="text-content">
-                                <h4><a [routerLink]='["/devis"]'>Construction mur en maçonnerie</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Rénovation et reprise de mur</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-
-                                        Isolation thermique des murs par l'intérieur (ITI)
-
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Réalisation de mur végétalisé</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Travaux d’ouverture
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Etude structure mur porteur
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Fabrication et pose de verrière
-
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Plafond
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Ornement plâtre (corniche, moulure, rosace)
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Caisson décoratif pour conduit de cheminée
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Cloison
-                                    </a></h4>
-
-                            </div>
-                        </div>
-                        <div id="tab8">
-                            <img src="assets/img/blog_item_08.jpg" alt="">
-                            <div class="text-content">
-
-                                <h4><a [routerLink]='["/devis"]'>Réalisation de dalle en béton armé</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Réalisation de chape béton</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Réalisation de plancher</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Renforcement de plancher</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Construction chape sèche pour plancher bois
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Lissage de sol intérieur existant (ragréage)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Ouverture pour escalier</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Etude structure plancher</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Pose de barre de seuil entre 2 pièces</a></h4>
-
-
-
-                            </div>
-                        </div>
-                        <div id="tab9">
-                            <img src="assets/img/blog_item_09.jpg" alt="">
-                            <div class="text-content">
-
-                                <h4><a [routerLink]='["/devis"]'>Carrelage</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Parquet et sol stratifié</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Moquette, sisal, PVC, lino</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Marbre, pierre et galet</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Enduit, béton ciré et crépis
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Plinthe
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Installation de crédence</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Peinture, papier peint</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Bardage et parement mural</a></h4>
-
-                                <h4><a [routerLink]='["/devis"]'>Pose de lambris intérieur</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Nettoyage en profondeur (sablage, gommage)</a></h4>
-
-
-
-
-                            </div>
-                        </div>
-                        <div id="tab10">
-                            <img src="assets/img/blog_item_10.jpg" alt="">
-                            <div class="text-content">
-
-                                <h4><a [routerLink]='["/devis"]'>Pose de système de commande domotique</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Installation système de suivi conso énergétique</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Installation domotique pour PMR
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Régulation radiateur à eau</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Régulation pour plancher chauffant à eau
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Régulation pour plancher chauffant électrique
-
-                                    </a></h4>
-
-
-
-
-                            </div>
-                        </div>
-                        <div id="tab11">
-                            <img src="assets/img/blog_item_11.jpg" alt="">
-                            <div class="text-content">
-
-                                <h4><a [routerLink]='["/devis"]'>Installation de salle de bains complète</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Installation de sanitaire (baignoire, bac à douche, WC, bidet)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Création d'une douche à l'italienne
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Installation d'une cabine de douche</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Installation de pare baignoire - pare douche
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Remplacement d'une colonne de douche
-
-
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Mobilier</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Installation sèche-serviette électrique</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Réalisation de joint silicone pour cuisine et salle de bains</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Jacuzzi, hammam et sauna</a></h4>
-
-
-
-
-
-
-                            </div>
-                        </div>
-                        <div id="tab12">
-                            <img src="assets/img/blog_item_12.jpg" alt="">
-                            <div class="text-content">
-
-                                <h4><a [routerLink]='["/devis"]'>Porte</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Fenêtre et porte-fenêtre</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Isolation porte et fenêtre
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Store et volet</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Baie vitrée
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Remplacement de vitre
-
-
-
-                                    </a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Création-restauration de vitrail</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>
-                                        Serrure (installation ou remplacement)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Saut de loup (lumière naturelle en sous-sol)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Installation de puits de lumière sur toit-terrasse (skydome)</a></h4>
-                                <h4><a [routerLink]='["/devis"]'>Pose de grille anti-effraction devant fenêtre</a></h4>
-
-
-
-
-
-
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="contact-us">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h4>Contactez-nous</h4>
-                    <div class="line-dec"></div>
-                    
-                    <div class="pop-button">
-                        <h4>Envoyez Un Message</h4>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="pop">
-                    <span>✖</span><span><button mat-raised-button color="primary" (click)="send()">Send
-                        </button></span>
-                    <form [formGroup]="contactForm">
-                        <div class="flex flex-row w-full flex-wrap">
-                            <div class="-mx-3 md:flex mb-2 px-3 flex-wrap">
-                                <div class="flex-auto px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                                        for="grid-first-name">
-                                        Name
-                                    </label>
-                                    <input
-                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                                        id="grid-first-name" type="text" formControlName="fullname" required
-                                        placeholder="Fullname" [readonly]="existUser"
-                                        [ngClass]="existUser ? 'exist' : 'notexist' ">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="pop">
+                        <span>✖</span><span><button mat-raised-button color="primary" (click)="send()">Send
+                            </button></span>
+                        <form [formGroup]="contactForm">
+                            <div class="flex flex-row w-full flex-wrap">
+                                <div class="-mx-3 md:flex mb-2 px-3 flex-wrap">
+                                    <div class="flex-auto px-3 mb-6 md:mb-0">
+                                        <label
+                                            class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
+                                            for="grid-first-name">
+                                            Name
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                                            id="grid-first-name" type="text" formControlName="fullname" required
+                                            placeholder="Fullname" [readonly]="existUser"
+                                            [ngClass]="existUser ? 'exist' : 'notexist' ">
+                                    </div>
+                                </div>
+
+                                <div class="-mx-3 md:flex mb-2">
+                                    <div class="flex-wrap px-3 mb-6 md:mb-0">
+                                        <label
+                                            class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
+                                            for="grid-city">
+                                            Email
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
+                                            id="grid-city" type="email" required formControlName="email"
+                                            placeholder="e-mail" [readonly]="existUser"
+                                            [ngClass]="existUser ? 'exist' : 'notexist' ">
+
+                                    </div>
+
                                 </div>
                             </div>
 
-                            <div class="-mx-3 md:flex mb-2">
-                                <div class="flex-wrap px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                                        for="grid-city">
-                                        Email
-                                    </label>
-                                    <input
-                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                                        id="grid-city" type="email" required formControlName="email"
-                                        placeholder="e-mail" [readonly]="existUser"
-                                        [ngClass]="existUser ? 'exist' : 'notexist' ">
+                            <div class="flex flex-row w-full flex-wrap sm:w-full md:w-full">
 
-                                </div>
+                                <div class="-mx-3 md:flex mb-2">
+                                    <div class="flex-wrap px-3 mb-6 md:mb-0">
+                                        <label
+                                            class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
+                                            for="grid-zip">
+                                            Phone
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
+                                            id="grid-zip" type="text" required placeholder="00 00 00 00"
+                                            formControlName="phone" [readonly]="existUser"
+                                            [ngClass]="existUser ? 'exist' : 'notexist' ">
 
-                            </div>
-                        </div>
-
-                        <div class="flex flex-row w-full flex-wrap sm:w-full md:w-full">
-
-                            <div class="-mx-3 md:flex mb-2">
-                                <div class="flex-wrap px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                                        for="grid-zip">
-                                        Phone
-                                    </label>
-                                    <input
-                                        class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                                        id="grid-zip" type="text" required placeholder="00 00 00 00"
-                                        formControlName="phone" [readonly]="existUser"
-                                        [ngClass]="existUser ? 'exist' : 'notexist' ">
-
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <label class="w-full block text-sm font-bold mb-2">
-                            Opinion
-                            <div class="flex-auto mt-2 mb:mt-0 px-9">
-                                <textarea class="w-full shadow-inner p-4 border-0" placeholder="Opinion..." rows="4"
-                                    required formControlName="opinion">
+                            <label class="w-full block text-sm font-bold mb-2">
+                                Opinion
+                                <div class="flex-auto mt-2 mb:mt-0 px-9">
+                                    <textarea class="w-full shadow-inner p-4 border-0" placeholder="Opinion..." rows="4"
+                                        required formControlName="opinion">
                         </textarea>
-                            </div>
-                        </label>
+                                </div>
+                            </label>
 
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <div class="logo">
-                    <a class="logo-ft scroll-top" href="#"><em>Build </em> Pro</a>
-                    <p>Copyright &copy; 2020 Build Pro
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="logo">
+                        <a class="logo-ft scroll-top" href="#"><em>Build </em> Pro</a>
+                        <p>Copyright &copy; 2020 Build Pro
                         <p>Powered by Aslene OUAZE</p>
 
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="location">
-                    <h4>Emplacement</h4>
-                    <ul>
-                        <li>Rue Taher sfar   </li>
-                        <li>Mahdia 5100 </li>
-                    </ul>
+                <div class="col-md-4 col-sm-12">
+                    <div class="location">
+                        <h4>Emplacement</h4>
+                        <ul>
+                            <li>Rue Taher sfar </li>
+                            <li>Mahdia 5100 </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-sm-12">
-                <div class="contact-info">
-                    <h4>Plus D'Information</h4>
-                    <ul>
-                        <li><em>Téléphone</em>: +21652386386</li>
-                        <li><em>Email</em>: buildup.ingénierie @gmail.com</li>
-                    </ul>
+                <div class="col-md-2 col-sm-12">
+                    <div class="contact-info">
+                        <h4>Plus D'Information</h4>
+                        <ul>
+                            <li><em>Téléphone</em>: +21652386386</li>
+                            <li><em>Email</em>: buildup.ingénierie @gmail.com</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-sm-12">
-                <div class="connect-us">
-                    <h4>Nos Réseaux Sociaux</h4>
-                    <ul>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
+                <div class="col-md-2 col-sm-12">
+                    <div class="connect-us">
+                        <h4>Nos Réseaux Sociaux</h4>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+</div>

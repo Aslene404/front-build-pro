@@ -1,5 +1,9 @@
 <div class="px-2" >
   <span class="text-center">
+    <div class="primary-blue-button" style="text-align: center;">
+      <a [routerLink]="['/home']" class="scroll-link">Acceuil </a>
+      
+    </div>
     <h1> Espace Entreprise</h1>
   </span>
   <div class="flex md:flex-grow-0">
@@ -15,7 +19,7 @@
           <div class="container mx-auto pt-24 md:pt-16 px-6" front class="front">
             <!-- CARD of Entreprises -->
             <div class="max-w-sm rounded overflow-hidden shadow-lg self-center">
-              <img class="h-56 w-full border-white border-8" src={{entreprise.logo_url}}>
+              <img class="w-full border-white border-8" src={{entreprise.logo_url}}>
               <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{{entreprise.name}}</div>
 

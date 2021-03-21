@@ -14,7 +14,7 @@ import { IDevis } from 'src/app/shared/models/devis.model';
 })
 export class BackDevisComponent implements OnInit {
   displayedColumns: string[] = [
-    'role','fullname','email','phone','entreprise','numRegistre','cat','subcat','delete'
+    'role','fullname','email','phone','entreprise','numRegistre','cat','subcat','details','delete'
    
   ];
  private subscribtion;

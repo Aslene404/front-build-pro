@@ -1,5 +1,9 @@
 <div class=" " style="background-image:url('assets/img/entreprise_background.jpg');">
-
+	<div class="primary-blue-button" style="text-align: center;">
+		<a [routerLink]="['/home']" class="scroll-link">Acceuil </a>
+		<a [routerLink]="['/entreprise' ]" class="scroll-link"> Espace Entreprise</a>
+	</div>
+	
 	<!--Main Col-->
 	<div id="profile"
 		class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
@@ -23,7 +27,8 @@
 			</ul>
 			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-teal-500 ">Nos projets</div>
 			<p class="mx-auto lg:mx-0 w-4/5 pt-3 "> </p>
-			<div class="mx-auto lg:mx-0 w-4/5 pt-3 " style="width: 25rem;" *ngFor="let project of myProjects;let i=index">
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 " style="width: 25rem;"
+				*ngFor="let project of myProjects;let i=index">
 				<a href={{project.photo_url}} data-lightbox="image-1"><img class="card-img-top"
 						src={{project.photo_url}} alt="Card image cap"></a>
 				<div class="card-body">

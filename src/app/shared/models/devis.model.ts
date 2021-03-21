@@ -5,6 +5,7 @@ export interface IDevis {
     phone?: string;
     entreprise?: string;
     numRegistre?: string;
+    about?:string;
     cat?: string;
     subcat?: string;
   }

@@ -11,8 +11,14 @@ import { AuthGuard } from './_gards/auth.guard';
 
 import {EntrepriseUpdateComponent} from './components/entreprise-update/entreprise-update.component'
 import { EspaceEntrepriseComponent } from './components/espace-entreprise/espace-entreprise.component';
+import { InspireComponent } from './components/inspire/inspire.component';
+import { ProductsComponent } from './components/products/products.component';
+import { TrendsComponent } from './components/trends/trends.component';
 const routes: Routes = [
   {path:'home',component:HomeComponent},
+  {path:'inspire',component:InspireComponent},
+  {path:'products',component:ProductsComponent},
+  {path:'trends',component:TrendsComponent},
   {path:'signin',component:SigninComponent},
   {path:'signup',component:FrontSingupComponent},
   {path:'devis',component:DevisFormComponent,canActivate:[AuthGuard]},

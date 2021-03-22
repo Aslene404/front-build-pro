@@ -1,4 +1,4 @@
-<div class="main">
+<div class="page">
 
     <div class="header" style="height: max-content;">
         <div class="container">
@@ -91,10 +91,10 @@
     <div class="sidenav">
         <br><br><br><br><br><br><br><br><br><br><br>
         <p style="font-family:courier,arial,helvetica; font-size: x-large; color: coral;">
-            Publicité</p>
+            Pub</p>
         <div *ngFor="let pub of myPubs ;let i=index" (click)="animation($event)">
             <p style="font-family:courier,arial,helvetica; font-size: medium; color: white;">{{pub.name}} </p>
-            <img src={{pub.image_url}}>
+            <img src={{pub.image_url}} style="width: 50%;">
             <p style="font-family:courier,arial,helvetica; font-size:medium; color: white;">{{pub.price}} DT </p>
         </div>
     </div>
@@ -111,7 +111,7 @@
 
                 </div>
                 <div class="primary-blue-button">
-                    <a href="#" class="scroll-link" data-id="portfolio4">Inspirer / Découvrir</a>
+                    <a [routerLink]='["/inspire"]'>Inspirer / Découvrir</a>
                 </div>
             </div>
         </div>
@@ -208,7 +208,7 @@
                         <div class="line-dec"></div>
 
                         <div class="primary-blue-button">
-                            <a href="#" class="scroll-link" data-id="portfolio2">En savoir Plus</a>
+                            <a [routerLink]='["/products"]'>En savoir Plus</a>
                         </div>
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                         <div class="line-dec"></div>
 
                         <div class="primary-blue-button">
-                            <a href="#" class="scroll-link" data-id="portfolio3">En savoir Plus</a>
+                            <a [routerLink]='["/trends"]'>En savoir Plus</a>
                         </div>
                     </div>
                 </div>
@@ -667,156 +667,9 @@
             </div>
         </div>
     </div>
-    <section id="portfolio4">
-        <div class="content-wrapper">
-            <div class="inner-container container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="section-heading">
-                            <h4>Inspirer / Découvrir</h4>
-                            <div class="line-dec"></div>
-
-                            <div class="filter-categories">
-                                <ul class="project-filter">
-
-                                    <li class="filter" data-filter="cuisine"><span>Cuisine</span></li>
-                                    <li class="filter" data-filter="salle de bain et wc"><span> Salle De Bain et
-                                            WC</span>
-                                    </li>
-                                    <li class="filter" data-filter="chambre adulte"><span>Chambre Adulte</span></li>
-                                    <li class="filter" data-filter="piéce à vivre"><span>Piéce à Vivre </span></li>
-                                    <li class="filter" data-filter="salle à manger"><span>Salle à Manger</span></li>
-                                    <li class="filter" data-filter="extérieur et jardin"><span>Extérieur & Jardin</span>
-                                    </li>
-                                    <li class="filter" data-filter="chambre enfant"><span>Chambre Enfant</span></li>
-                                    <li class="filter" data-filter="bureau"><span>Bureau</span></li>
-                                    <li class="filter" data-filter="façade"><span>Façade</span></li>
-                                    <li class="filter" data-filter="escalier"><span>Escalier</span></li>
-                                    <li class="filter" data-filter="restaurant et café"><span>Restaurant & Café</span>
-                                    </li>
-                                    <li class="filter" data-filter="immeuble"><span>Immeuble</span></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="projects-holder-3">
-                            <div class="projects-holder">
-                                <div class="row">
-                                    <div *ngFor="let inspire of myInspires ;let i=index" (click)="animation($event)">
-                                        <div class="col-md-6 col-sm-6 project-item mix {{inspire.cat}} ">
-                                            <div class="thumb">
-                                                <div class="image">
-                                                    <a href={{inspire.image_url}}
-                                                        data-lightbox="image-1"><img
-                                                            src={{inspire.image_url}}></a>
-                                                            <p
-                                                            style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                            {{inspire.name}}</p>
-                                                            
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolio2">
-        <div class="content-wrapper">
-            <div class="inner-container container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="section-heading">
-                            <h4>Nos Produits</h4>
-                            <div class="line-dec"></div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="projects-holder-3">
-                            <div class="projects-holder">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 project-item  ">
-                                        <div class="thumb" *ngFor="let product of myProducts ;let i=index"
-                                            (click)="animation($event)">
-                                            <div class="image">
-                                                <p
-                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                    {{product.name}}</p>
-                                                <a href={{product.image_url}} data-lightbox="image-1"><img
-                                                        src={{product.image_url}}></a>
-                                                
-                                                <p
-                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                    {{product.price}} DT</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="portfolio3">
-        <div class="content-wrapper">
-            <div class="inner-container container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="section-heading">
-                            <h4>Les Plus Demandés</h4>
-                            <div class="line-dec"></div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="projects-holder-3">
-                            <div class="projects-holder">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 project-item  ">
-                                        <div class="thumb" *ngFor="let trend of myTrends ;let i=index"
-                                            (click)="animation($event)">
-                                            <div class="image">
-                                                <p
-                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                    {{trend.name}}</p>
-                                                <a href={{trend.image_url}} data-lightbox="image-1"><img
-                                                        src={{trend.image_url}}></a>
-                                                
-                                                <p
-                                                    style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
-                                                    {{trend.price}} DT</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+    
+    
     <div id="contact-us">
         <div class="container">
             <div class="row">

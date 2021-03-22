@@ -1,0 +1,43 @@
+<section id="portfolio3">
+    <div class="content-wrapper">
+        <div class="inner-container container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="section-heading">
+                        <h4>Les Plus Demandés</h4>
+                        <div class="line-dec"></div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="projects-holder-3">
+                        <div class="projects-holder">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 project-item  ">
+                                    <div class="thumb" *ngFor="let trend of myTrends ;let i=index"
+                                        >
+                                        <div class="image">
+                                            <p
+                                                style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                {{trend.name}}</p>
+                                            <a href={{trend.image_url}} data-lightbox="image-1"><img
+                                                    src={{trend.image_url}}></a>
+                                            
+                                            <p
+                                                style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                {{trend.price}} DT</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

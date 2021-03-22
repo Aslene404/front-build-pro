@@ -46,6 +46,9 @@ import { CardEntrepriseComponent } from './components/espace-entreprise/card-ent
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UploadEntrepriseLogoComponent } from './components/upload-entreprise-logo/upload-entreprise-logo.component';
 import { UploadEProjectPhotoComponent } from './components/upload-e-project-photo/upload-e-project-photo.component';
+import { InspireComponent } from './components/inspire/inspire.component';
+import { ProductsComponent } from './components/products/products.component';
+import { TrendsComponent } from './components/trends/trends.component';
 //Angular Material Components
 
 @NgModule({
@@ -70,7 +73,10 @@ import { UploadEProjectPhotoComponent } from './components/upload-e-project-phot
     EspaceEntrepriseComponent,
     CardEntrepriseComponent,
     UploadEntrepriseLogoComponent,
-    UploadEProjectPhotoComponent
+    UploadEProjectPhotoComponent,
+    InspireComponent,
+    ProductsComponent,
+    TrendsComponent
 
   ],
   imports: [

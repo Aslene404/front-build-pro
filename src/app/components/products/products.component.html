@@ -1,0 +1,43 @@
+<section id="portfolio2">
+    <div class="content-wrapper">
+        <div class="inner-container container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12" >
+                    <div class="section-heading" style="height:100%">
+                        <h4>Nos Produits</h4>
+                        <div class="line-dec"></div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="projects-holder-3">
+                        <div class="projects-holder">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 project-item  ">
+                                    <div class="thumb" *ngFor="let product of myProducts ;let i=index"
+                                        >
+                                        <div class="image">
+                                            <p
+                                                style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                {{product.name}}</p>
+                                            <a href={{product.image_url}} data-lightbox="image-1"><img
+                                                    src={{product.image_url}}></a>
+                                            
+                                            <p
+                                                style="font-family:courier,arial,helvetica;font-size: larger; color: black;">
+                                                {{product.price}} DT</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

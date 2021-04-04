@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../_gards/auth.guard';
 import { BackDevisComponent } from './back-devis/back-devis.component';
+import { BackEntrepriseComponent } from './back-entreprise/back-entreprise.component';
 import { BackHomeComponent } from './back-home/back-home.component';
 import { BackInspireComponent } from './back-inspire/back-inspire.component';
 import { BackLandpageComponent } from './back-landpage/back-landpage.component';
@@ -43,6 +44,10 @@ const routes: Routes = [{
     {
       path: 'pub',
       component: BackPubComponent,canActivate:[AuthGuard]
+    },
+    {
+      path: 'entreprise',
+      component: BackEntrepriseComponent,canActivate:[AuthGuard]
     },
 
     { path: '**', redirectTo: '/back/home', pathMatch: 'full' }

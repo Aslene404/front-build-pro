@@ -38,11 +38,12 @@ import { AppComponent } from '../app.component';
 import { ErrorInterceptor } from '../shared/helpers/error.interceptor';
 import { JwtInterceptor } from '../shared/helpers/jwt.interceptor';
 import { UserService } from '../shared/user/user.service';
+import { BackEntrepriseComponent } from './back-entreprise/back-entreprise.component';
 
 
 
 @NgModule({
-  declarations: [BackLandpageComponent, AdminNavbarComponent, BackMessagesComponent, BackDevisComponent, BackHomeComponent, BackTrendComponent, BackProductComponent, BackInspireComponent, BackPubComponent, UploadProductImageComponent, UploadTrendImageComponent, UploadPubImageComponent, UploadInspireImageComponent],
+  declarations: [BackLandpageComponent, AdminNavbarComponent, BackMessagesComponent, BackDevisComponent, BackHomeComponent, BackTrendComponent, BackProductComponent, BackInspireComponent, BackPubComponent, UploadProductImageComponent, UploadTrendImageComponent, UploadPubImageComponent, UploadInspireImageComponent, BackEntrepriseComponent],
   imports: [
     CommonModule,
     BackOfficeRoutingModule,

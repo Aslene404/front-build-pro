@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UploadFile, UploadInput, UploaderOptions, humanizeBytes, UploadOutput } from 'ngx-uploader';
 import { E_projectssService } from 'src/app/shared/e_projects.service';
 import { environment } from 'src/environments/environment';
@@ -17,7 +18,7 @@ export class UploadEProjectPhotoComponent implements OnInit {
   humalizeBytes: Function;
   dragOver: boolean;
   options: UploaderOptions;
-  constructor(private e_projectService:E_projectssService) {
+  constructor(private e_projectService:E_projectssService,private snackBar: MatSnackBar) {
     this.options = { concurrency: 1, maxUploads: 1 };
   this.files = [];
   this.uploadInput = new EventEmitter<UploadInput>();
@@ -54,7 +55,7 @@ export class UploadEProjectPhotoComponent implements OnInit {
         this.dragOver = false;
         break;
       case 'done':
-        console.log(`%c Avatar Uploaded `, 'background-color:tomato;color:white');
+        this.snackBar.open("Image envoyée avec succès", 'Close', { duration: 5000 });
         this.uploadPictureEvent.emit(true);
         break;
     }

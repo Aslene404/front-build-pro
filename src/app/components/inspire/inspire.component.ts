@@ -44,9 +44,5 @@ export class InspireComponent implements OnInit {
       });
       
   }
-  ngOnDestroy(): void {
-    
-    this.subscription4.unsubscribe();
-
-  }
+  
 }

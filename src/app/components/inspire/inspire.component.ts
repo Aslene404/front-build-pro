@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { map } from 'rxjs/operators';
 import { InspiresService } from 'src/app/shared/inspire.service';
@@ -14,9 +14,12 @@ import { environment } from 'src/environments/environment';
 export class InspireComponent implements OnInit {
   subscription4: any;
   myInspires: IInspire[];
+  
+  
   constructor(private _inspireService:InspiresService,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
+    
     this.subscription4 = this._inspireService.getAllInspire().
       pipe(
         map(

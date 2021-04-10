@@ -26,6 +26,7 @@ export class ProductsComponent implements OnInit {
         map((products: IProduct[]) => {
           let tmpProducts = products.map(product => {
             product.image_url = `${environment.API_URL}/${product.image_url}`;
+            
             return product;
           });
           tmpProducts=tmpProducts.filter((product: IProduct) => {

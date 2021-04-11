@@ -26,7 +26,7 @@ export class TrendsComponent implements OnInit {
         ),
         map((trends: ITrend[]) => {
           let tmpTrends = trends.map(trend => {
-            trend.image_url = `${environment.API_URL}/${trend.image_url}`;
+            
             return trend;
           });
           tmpTrends=tmpTrends.filter((trend: ITrend) => {

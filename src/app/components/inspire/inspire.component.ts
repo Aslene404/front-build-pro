@@ -28,7 +28,7 @@ export class InspireComponent implements OnInit {
         ),
         map((inspires: IInspire[]) => {
           let tmpInspires = inspires.map(inspire => {
-            inspire.image_url = `${environment.API_URL}/${inspire.image_url}`;
+            
             return inspire;
           });
           tmpInspires=tmpInspires.filter((inspire: IInspire) => {

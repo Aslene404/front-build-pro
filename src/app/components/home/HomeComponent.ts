@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit {
         ),
         map((pubs: IPub[]) => {
           let tmpPubs = pubs.map(pub => {
-            pub.image_url = `${environment.API_URL}/${pub.image_url}`;
+            
             return pub;
           });
           tmpPubs=tmpPubs.filter((pub: IPub) => {

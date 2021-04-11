@@ -37,7 +37,7 @@ this.subscription=this._entrepriseService.getEntrepriseById(this.id)
   ),
   map((entreprises: IEntreprise) => {
     
-    entreprises.logo_url=`${environment.API_URL}/${entreprises.logo_url}`;
+    
     return entreprises;
   }),
 )
@@ -61,7 +61,7 @@ this.subscription = this._e_projectsService.getAllE_projects().
         ),
         map((e_projects: IE_projects[]) => {
           let tmpE_projects = e_projects.map(e_project => {
-            e_project.photo_url = `${environment.API_URL}/${e_project.photo_url}`;
+            
             return e_project;
           });
           tmpE_projects=tmpE_projects.filter((e_project: IE_projects) => {

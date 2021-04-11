@@ -27,7 +27,7 @@ export class EspaceEntrepriseComponent implements OnInit {
         ),
         map((entreprises: IEntreprise[]) => {
           let tmpEntreprises = entreprises.map(entreprise => {
-            entreprise.logo_url = `${environment.API_URL}/${entreprise.logo_url}`;
+            
             return entreprise;
           });
           tmpEntreprises=tmpEntreprises.filter((entreprise: IEntreprise) => {

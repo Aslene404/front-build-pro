@@ -57,7 +57,10 @@ export class EntrepriseAddComponent implements OnInit, OnDestroy {
     });
     this.e_projectsForm = this._formBuilder.group({
       name: ['', Validators.required],
-      photo: ['', Validators.required]
+      photo: ['', Validators.required],
+      projects: this._formBuilder.array([
+        this._formBuilder.control('')
+      ])
 
 
 
@@ -72,6 +75,13 @@ export class EntrepriseAddComponent implements OnInit, OnDestroy {
 
   addService() {
     this.services.push(this._formBuilder.control(''));
+  }
+  get projects() {
+    return this.e_projectsForm.get('projects') as FormArray;
+  }
+
+  addProjects() {
+    this.projects.push(this._formBuilder.control(''));
   }
 
   addProject() {
@@ -92,7 +102,7 @@ export class EntrepriseAddComponent implements OnInit, OnDestroy {
           },
           error: (error) => this.snackBar.open('Unable to reach API', 'Close'),
           complete: () => {
-            this.e_projectsForm.reset();
+            this.e_projectsForm.get('name').reset();
             if (this.projectSubscription) {
               this.projectSubscription.unsubscribe();
             }

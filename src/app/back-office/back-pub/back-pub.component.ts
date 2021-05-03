@@ -13,7 +13,7 @@ import { PubsService } from 'src/app/shared/pub.service'
   templateUrl: './back-pub.component.html',
   styleUrls: ['./back-pub.component.css']
 })
-export class BackPubComponent implements OnInit {
+export class BackPubComponent implements OnInit,OnDestroy {
   displayedColumns: string[] = [
     'name','price','delete'
    

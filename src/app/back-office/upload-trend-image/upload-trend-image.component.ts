@@ -56,6 +56,7 @@ export class UploadTrendImageComponent implements OnInit {
       case 'done':
         this.snackBar.open("Image envoyée avec succès", 'Close', { duration: 5000 });
         this.uploadPictureEvent.emit(true);
+        window.location.reload();
         break;
     }
   }

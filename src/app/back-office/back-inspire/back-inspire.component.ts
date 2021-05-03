@@ -13,7 +13,7 @@ import { InspiresService } from 'src/app/shared/inspire.service'
   templateUrl: './back-inspire.component.html',
   styleUrls: ['./back-inspire.component.css']
 })
-export class BackInspireComponent implements OnInit {
+export class BackInspireComponent implements OnInit,OnDestroy {
   displayedColumns: string[] = [
     'name','cat','delete'
    
@@ -79,9 +79,7 @@ export class BackInspireComponent implements OnInit {
   ngOnChanges() {
     this.dataSource = new MatTableDataSource(this.ourInspires)
   }
-  ngOnDestroy(): void {
-    this.subscribtion.unsubscribe();
-  }
+  
 
 
   addInspire() {
@@ -102,6 +100,9 @@ export class BackInspireComponent implements OnInit {
 
     });
     
+  }
+  ngOnDestroy(): void {
+    this.subscribtion.unsubscribe();
   }
   refresh(event) {
     console.log(event)

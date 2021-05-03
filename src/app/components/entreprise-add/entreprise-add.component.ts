@@ -167,6 +167,7 @@ export class EntrepriseAddComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.entrepriseSubscription.unsubscribe();
+    this.projectSubscription.unsubscribe();
   }
 
 }

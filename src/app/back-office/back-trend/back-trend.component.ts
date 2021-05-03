@@ -13,7 +13,7 @@ import { TrendsService } from 'src/app/shared/trend.service'
   templateUrl: './back-trend.component.html',
   styleUrls: ['./back-trend.component.css']
 })
-export class BackTrendComponent implements OnInit {
+export class BackTrendComponent implements OnInit,OnDestroy {
   displayedColumns: string[] = [
     'name','price','delete'
    

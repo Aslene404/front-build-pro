@@ -13,7 +13,7 @@ import { ProductsService } from 'src/app/shared/product.service'
   templateUrl: './back-product.component.html',
   styleUrls: ['./back-product.component.css']
 })
-export class BackProductComponent implements OnInit {
+export class BackProductComponent implements OnInit,OnDestroy {
   displayedColumns: string[] = [
     'name','price','delete'
    
